@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon of Cyrene helps Jesus carry the Cross</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="center">
+        <h1>Simon of Cyrene helps Jesus carry the Cross</h1>
+        <video id="vid" title="Simon of Cyrene helps Jesus carry the Cross" width="1280" height="720">
+            <source src="assets\SimonVideo2021.mp4" type="video/mp4">
+        </video>
+        <audio id="aud">
+            <source src="assets\simon.mp3" type="audio/mp3">
+        </audio>
+
+
+    </section>
+    <section class="controls">
+        <input id="start" type="button" value="Start"><input id="stop" type="button" value="Stop"> Loop:<input id="loop"
+            type="checkbox" title="loop">
+    </section>
+
+
+    <footer class="center">
+        <a href="https://earthjazz.net">earthJazz</a>
+        <a href="https://littlestray.com" alt-text="little stray's website">little_stray</a>
+        <a href="https://twitter.com/little_stray" alt-text="little stray's twitter">twitter</a>
+        <a href="https://www.instagram.com/little_stray_little_drifter/" alt-text="little stray's instagram">insta</a>
+        <a href="https://www.twitch.tv/little_stray" alt-text="little stray's twitch">twitch</a>
+
+    </footer>
+    <script>
+
+        let vid = document.getElementById("vid")
+        let aud = document.getElementById("aud")
+        let check = document.getElementById("loop")
+
+        let start = () => {
+            vid.play()
+            aud.play()
+        }
+        let stop = () => {
+            vid.pause()
+            aud.pause()
+        }
+        let loop = () => {
+            vid.loop = check.checked;
+            aud.loop = check.checked;
+        }
+
+        let startButton = document.getElementById("start")
+        startButton.onclick = start
+
+        let stopButton = document.getElementById("stop")
+        stopButton.onclick = stop
+
+        let loopCheck = document.getElementById("loop")
+        loopCheck.onchange = loop
+
+
+    </script>
+
+</body>
+
+</html>

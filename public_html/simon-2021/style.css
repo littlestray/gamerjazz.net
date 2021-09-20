@@ -1,0 +1,30 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video {}
+
+.floating {}
+
+body {
+    background-image: url("assets/background.png");
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+button {
+    font-family: 'Press Start 2P', cursive;
+}
+
+footer {
+    padding: 5%;
+}
+
+.controls {
+    padding-left: 45%;
+}
+
+.control-button {
+    background-color: aquamarine;
+}
