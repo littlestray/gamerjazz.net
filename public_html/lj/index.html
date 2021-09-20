@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+    <title>lj</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
+    <style>
+        body {
+            background-color: #0000ff;
+            color: #FFFFFF;
+            font-family: VT323;
+        }
+
+        span {
+            color: #0000ff;
+            transition: color 5s;
+        }
+
+        .seek {
+            color: #ffff00;
+        }
+
+        p,
+        marquee {
+            font-size: 30px;
+            font-weight: 800;
+            color: #00ff33;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>Sir LJ's web-den.</p>
+    <marquee>A scrolling text created with HTML Marquee element...........
+        .............site underconstruction....</marquee>
+
+    <p><span id="seek">cwiss loves lj and it isn't a secret but chris wanted to show off js skillz</span></p>
+</body>
+<script>
+    console.log("index.html")
+
+    document.onmousemove = handleMouseMove
+
+    function handleMouseMove(event) {
+        temp = document.getElementById("seek")
+
+        if (event.clientY / window.innerHeight > 0.4) {
+           temp.className = "seek"
+        } else {
+            temp.className = ""
+        }
+    }
+</script>
+
+</html>

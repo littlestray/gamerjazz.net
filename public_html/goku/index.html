@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>goku</title>
+    <style>
+        body {
+            background-color: #00FF00;
+        }
+
+        #one {
+            animation: spin1 1s linear infinite;
+        }
+        #two {
+            animation: spin2 1s linear infinite;
+        }
+
+        @keyframes spin1 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+
+        @keyframes spin2 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <img id="one" src="./img/higoku.png">
+    <img id="two" src="./img/goku1.gif">
+
+</body>
+</html>

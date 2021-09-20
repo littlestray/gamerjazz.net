@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+p {
+    margin: 0px;
+    padding: 10px;
+}
+
+.full {
+    height: 100%;
+}
+
+.dark {
+    background: black;
+    color: white;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%
+    }
+}
+
+/* LINKS */
+
+a {
+    color: rgba(100, 100, 100, 1)
+}
+
+a:visited {
+    color: rgba(50, 0, 50, 0.5)
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+a:active {
+    color: white;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: underwood;
+    src: url('fonts/underwood_champion.ttf');
+}
+
+.font-underwood {
+    font-family: underwood;
+}
