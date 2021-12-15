@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Created by:
+    littlestray (Chris Baldys) 
+    wacobjeinberg (Jacob Weinberg) 
+    November 13th, 2021
+
+    https://github.com/littlestray/turtles-all-the-way-down
+
+    https://chrisbaldys.com/
+    https://jacobweinberg.net/
+
+    v1.0
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtles all the way down...</title>
+    <style>
+        body {
+            background-image: url('img/universe.jpg');
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: aquamarine;
+        }
+
+        #images {
+            display: grid;
+        }
+
+        #info {
+            position: sticky;
+            top: 20px;
+            left: 80%;
+            width: 20%;
+            border: 3px solid #ffffff;
+            font-size: 14px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>It's turtles all the way down...</p>
+    <div id="info">
+        <p>Deepness Level: <span id="scrollHeight"></span></p>
+        <p>Deepness Percentage: <span id="scrollPercent"></span></p>
+        <p><span id="turtleCount"></span>/∞ turtles</p>
+
+    </div>
+    <div id="images">
+
+    </div>
+
+
+
+
+    <script>
+
+        let lastKnownScrollPosition = 0
+        let ticking = false
+
+        //HUD Info
+        let scrollHeightDiv = document.getElementById("scrollHeight")
+        let scrollPercentDiv = document.getElementById("scrollPercent")
+        let turtleCountDiv = document.getElementById("turtleCount")
+
+        scrollHeightDiv.innerHTML = `0`
+        scrollPercentDiv.innerHTML = `0`
+        turtleCountDiv.innerHTML = `1`
+
+
+        //DIVS
+        let imagesDiv = document.getElementById("images")
+
+        //Append initial turtles
+        let root = document.compatMode == 'BackCompat' ? document.body : document.documentElement;
+
+        let initTurtleInterval = setInterval(() => {
+            imagesDiv.innerHTML += `<img class="turtle" width="${10 * ((imagesDiv.children.length/10) + 500 / 500)}%" src="img/turtle-trans.gif">`
+            console.log(root.scrollHeight > root.clientHeight)
+            if (root.scrollHeight > root.clientHeight) {
+                clearInterval(initTurtleInterval)
+            }
+        }, 1000)
+
+        function scrollHandler(event) {
+            console.log(event)
+
+            scrollHeightDiv.innerHTML = event
+            scrollPercentDiv.innerHTML = Math.floor(getScrollPercent())
+            turtleCountDiv.innerHTML = imagesDiv.children.length
+
+            if(getScrollPercent() > 75){
+                imagesDiv.innerHTML += `<img class="turtle" width="${10 * ((imagesDiv.children.length/10) + 500 / 500)}%" src="img/turtle-trans.gif">`
+            }
+
+        }
+
+        function getScrollPercent() {
+            var h = document.documentElement,
+                b = document.body,
+                st = 'scrollTop',
+                sh = 'scrollHeight';
+            return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        }
+
+        document.addEventListener("scroll", (e) => {
+            lastKnownScrollPosition = window.scrollY;
+
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    scrollHandler(lastKnownScrollPosition);
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
