@@ -50,6 +50,7 @@ const height = 25
 const nullCell = " "
 const liveCell = "█"
 const safeCell = "▄"
+const cursor = "▌"
 
 let world = [];
 
@@ -118,12 +119,14 @@ function updateInputField(){
       world[textCursor] = "-"
       textCursor++
     }
-    
-    world[textCursor] = inputString[i]
-    textCursor++
+
     if (textCursor >= world.length){
       textCursor = 0
     }
+    
+    world[textCursor] = inputString[i]
+    textCursor++
+    
   }
 
   inputString = ""
@@ -163,8 +166,9 @@ function worldToHTML() {
   let html = "";
 
   for (let i = 0; i < world.length; i++) {
-
-    if(world[i] === " "){
+    if (i === textCursor){
+      html += cursor
+    } else if (world[i] === " "){
       html += "&nbsp;"
     } else {
       html += world[i]
