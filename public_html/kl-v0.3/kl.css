@@ -1,0 +1,27 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+}
+
+#intro {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    top: 30%;
+    left: 30%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+}
+
+.center {
+    font-family: 'Cormorant Garamond', serif;
+    margin: auto;
+    text-align: center;
+    padding-top: 40%;
+    font-size: 36px;
+}
